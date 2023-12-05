@@ -12,3 +12,9 @@ format:
 
 lint:
 	pylint --disable=C,R main.py
+
+build:
+	#Building container
+	
+tests: 
+	pytest -W ignore test_api.py

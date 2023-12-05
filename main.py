@@ -86,6 +86,11 @@ async def get_user(user: User_Pydantic = Depends(get_user_current)):
     return user
 
 
+@app.get("/")
+def get():
+    return {"message": "Hello World"}
+
+
 register_tortoise(
     app,
     db_url="sqlite://db.sqlite3",

@@ -9,3 +9,6 @@ run:
 
 format:
 	black *.py mylib/*.py
+
+lint:
+	pylint main.py

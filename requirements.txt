@@ -27,3 +27,4 @@ pytest-cov
 pylint
 black 
 fire
+httpx

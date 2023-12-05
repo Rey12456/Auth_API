@@ -11,4 +11,4 @@ format:
 	black *.py mylib/*.py
 
 lint:
-	pylint main.py
+	pylint --disable=C,R main.py

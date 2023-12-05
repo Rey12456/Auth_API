@@ -6,3 +6,6 @@ install:
 
 run:
 	uvicorn main:app --reload    
+
+format:
+	black *.py mylib/*.py

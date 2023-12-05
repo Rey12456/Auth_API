@@ -22,3 +22,8 @@ toml
 tortoise-orm
 typing-extensions
 wsproto
+pytest
+pytest-cov
+pylint
+black 
+fire

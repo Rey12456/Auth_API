@@ -15,6 +15,12 @@ lint:
 
 build:
 	#Building container
+	docker build -t myapp .
+
 	
 tests: 
 	pytest -W ignore test_api.py
+
+runImage:
+	docker run -p 127.0.0.1:9000:9000 myapp
+

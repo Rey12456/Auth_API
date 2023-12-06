@@ -24,11 +24,12 @@ jobs:
     needs: testing
     steps:
       - uses: actions/checkout@v2
+      
       - name: Push to Docker Hub
         env:
           DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-          DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         run: |
           docker build -t gave44362/myapp .
-          docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-          docker push gave44362/myapp
+          docker tag gave44362/myapp:latest docker.io/gave44362/myapp:latest
+          docker push docker.io/gave44362/myapp:latest

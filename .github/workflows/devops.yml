@@ -1,6 +1,10 @@
 name: Authorization API
 on: [push]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   testing:
     runs-on: ubuntu-latest
@@ -39,3 +43,26 @@ jobs:
           push: true
           context: .
           tags: gave44362/myapp:latest
+
+  deploy-azure:
+    needs: push_to_docker_hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: 'Run Azure CLI commands'
+        run: |
+          az containerapp up \
+            --name my-container-app \
+            --resource-group my-apps \
+            --location centralus \
+            --environment 'my-container-apps' \
+            --image gave44362/myapp:latest \
+            --target-port 9000 \
+            --ingress external \
+            --query properties.configuration.ingress.fqdn

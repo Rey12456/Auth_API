@@ -1,4 +1,4 @@
-name: Authorization API
+name: Authorization API Test and Deploy
 on: [push]
 
 permissions:

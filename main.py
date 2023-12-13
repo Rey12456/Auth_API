@@ -9,7 +9,7 @@ import jwt
 
 app = FastAPI()
 
-JWT_SECRET = "ho"
+JWT_SECRET = "Key"
 
 
 class User(Model):

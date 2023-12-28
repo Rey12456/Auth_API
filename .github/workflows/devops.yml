@@ -54,13 +54,13 @@ jobs:
       - name: Terraform Init
         run: terraform init
       - name: Terraform Format
-        run: terraformFormat
+        run: terraform fmt
       - name: Terraform Validate
-        run: terraformValidate
+        run: terraform validate
       - name: Terraform Plan
-        run: terraformPlan
+        run: terraform plan -out=tfplan
       - name: Terraform apply
-        run: terraformApply
+        run: make terraformApply
 
   deploy-azure:
     needs: terraform_apply

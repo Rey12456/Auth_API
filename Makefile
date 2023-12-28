@@ -24,3 +24,18 @@ tests:
 runImage:
 	docker run -p 127.0.0.1:9000:9000 myapp
 
+terraforminit:
+	terraform init
+
+terraformFormat:
+	terraform fmt
+
+terraformValidate:
+	terraform validate
+
+terraformPlan:
+	terraform plan
+
+terraformApply:
+	terraform apply -auto-approve tfplan
+

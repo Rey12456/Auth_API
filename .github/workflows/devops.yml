@@ -51,8 +51,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
-      - name: Terraform init
-        run: terraforminit
+      - name: Terraform Init
+        run: terraform init
       - name: Terraform Format
         run: terraformFormat
       - name: Terraform Validate

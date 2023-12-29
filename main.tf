@@ -20,3 +20,18 @@ resource "azurerm_resource_group" "example_rg" {
     source      = "terraform"
   }
 }
+
+output "resource_group_id" {
+  description = "ID of the created resource group"
+  value       = azurerm_resource_group.example_rg.id
+}
+
+output "resource_group_location" {
+  description = "Location of the created resource group"
+  value       = azurerm_resource_group.example_rg.location
+}
+
+output "resource_group_tags" {
+  description = "Tags of the created resource group"
+  value       = azurerm_resource_group.example_rg.tags
+}

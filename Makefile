@@ -39,3 +39,6 @@ terraformPlan:
 terraformApply:
 	terraform apply -auto-approve tfplan
 
+terraformDestroy:
+	terraform destroy
+

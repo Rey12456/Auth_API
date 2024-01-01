@@ -24,6 +24,10 @@ resource "azurerm_resource_group" "example_rg" {
     source      = "terraform"
   }
 }
+provider "google" {
+  project = "<your-gcp-project-id>"
+  region  = "us-central1"  # Set your desired region
+}
 
 output "resource_group_id" {
   description = "ID of the created resource group"
